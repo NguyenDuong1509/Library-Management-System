@@ -1,0 +1,39 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: library-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+library:
+  max-loan-count: 5
+  loan-days-default: 14
+  max-renewals: 2
+  fine-per-day: 5000
+  reminder-days-before: 2
+  jwt:
+    secret: ${LIBRARY_JWT_SECRET}
+    expiration-hours: ${LIBRARY_JWT_EXPIRATION_HOURS:8}

@@ -1,0 +1,14 @@
+# Biến môi trường
+.env
+.env.example
+**/.env
+**/.env.example
+# Maven / Java build
+target/
+**/target/
+# IDE
+.idea/
+*.iml
+# Node (frontend)
+node_modules/
+dist/

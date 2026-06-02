@@ -138,7 +138,7 @@ Tài khoản demo khác:
 
 ## Overview Use Case
 
-## ![Use Case Diagram](docs/screenshots/use_case.png)
+## ![Use Case Diagram](docs/screenshots/use_caseTC.png)
 
 ## Website screenshot
 

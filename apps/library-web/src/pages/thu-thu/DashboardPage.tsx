@@ -60,7 +60,6 @@ export function DashboardPage() {
     <>
       <PageHeader
         title="Bảng điều khiển"
-        description="Tổng quan hoạt động thư viện (dữ liệu từ API)"
         action={
           <Link to="/thu-thu/muon-tra">
             <Button>Mượn sách</Button>
@@ -78,24 +77,20 @@ export function DashboardPage() {
         <KpiCard
           label="Mượn hôm nay"
           value={loading ? '…' : (kpis?.checkoutsToday ?? 0)}
-          hint="Từ /api/reports/dashboard-kpis"
         />
         <KpiCard
           label="Phiếu quá hạn"
           value={loading ? '…' : overdue.length}
-          hint="Từ /api/reports/overdue"
           hintTone="danger"
         />
         <KpiCard
           label="Đặt trước chờ"
           value={loading ? '…' : (kpis?.pendingReservations ?? 0)}
-          hint="Từ /api/reports/dashboard-kpis"
           hintTone="warning"
         />
         <KpiCard
           label="Phạt chưa thu"
           value={loading ? '…' : formatVnd(kpis?.unpaidFineTotal ?? 0)}
-          hint="Từ /api/reports/dashboard-kpis"
           hintTone="warning"
         />
       </div>

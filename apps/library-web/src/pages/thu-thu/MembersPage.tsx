@@ -63,7 +63,6 @@ export function MembersPage() {
     <>
       <PageHeader
         title="Độc giả"
-        description="Hồ sơ và thẻ thư viện"
         action={
           <Button onClick={() => setShowForm((v) => !v)}>
             {showForm ? 'Đóng' : 'Thêm độc giả'}

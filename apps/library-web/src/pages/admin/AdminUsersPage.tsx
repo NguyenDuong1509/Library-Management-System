@@ -74,7 +74,7 @@ export function AdminUsersPage() {
 
   return (
     <>
-      <PageHeader title="Quản lý người dùng" description="Tài khoản thủ thư và nhật ký audit" />
+      <PageHeader title="Quản lý người dùng" />
       <div className="mb-4 flex gap-2">
         <Button variant={tab === 'users' ? 'primary' : 'secondary'} onClick={() => setTab('users')}>
           Người dùng

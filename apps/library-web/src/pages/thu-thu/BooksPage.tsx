@@ -136,7 +136,6 @@ export function BooksPage() {
     <>
       <PageHeader
         title="Danh mục sách"
-        description="Dữ liệu từ GET /api/books"
         action={
           <Button onClick={() => setShowForm((v) => !v)}>
             {showForm ? 'Đóng form' : 'Thêm sách'}

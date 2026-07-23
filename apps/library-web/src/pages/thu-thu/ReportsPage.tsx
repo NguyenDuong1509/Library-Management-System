@@ -75,7 +75,7 @@ export function ReportsPage() {
 
   return (
     <>
-      <PageHeader title="Báo cáo" description="Tổng hợp vận hành theo kỳ" />
+      <PageHeader title="Báo cáo" />
       <div className="mb-4 grid gap-3 sm:grid-cols-3">
         <Input label="Từ ngày" type="date" value={from} onChange={(e) => setFrom(e.target.value)} />
         <Input label="Đến ngày" type="date" value={to} onChange={(e) => setTo(e.target.value)} />

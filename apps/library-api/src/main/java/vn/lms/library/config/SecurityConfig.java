@@ -38,6 +38,8 @@ public class SecurityConfig {
                         .requestMatchers("/actuator/health", "/actuator/info").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/reports/top-books")
+                        .hasAnyRole("ADMIN", "LIBRARIAN", "MEMBER")
                         .requestMatchers("/api/reports/**").hasAnyRole("ADMIN", "LIBRARIAN")
                         .requestMatchers("/api/**").hasAnyRole("ADMIN", "LIBRARIAN", "MEMBER")
                         .anyRequest().authenticated())

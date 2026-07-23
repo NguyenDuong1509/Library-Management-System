@@ -24,9 +24,9 @@ public interface BookRepository extends JpaRepository<BookEntity, UUID> {
             SELECT b FROM BookEntity b WHERE
             (:activeOnly = false OR b.active = true) AND
             (:q IS NULL OR :q = '' OR
-                LOWER(b.title) LIKE LOWER(CONCAT('%', :q, '%')) OR
-                LOWER(b.authors) LIKE LOWER(CONCAT('%', :q, '%')) OR
-                LOWER(b.isbn) LIKE LOWER(CONCAT('%', :q, '%'))) AND
+                b.title ILIKE CONCAT('%', :q, '%') OR
+                b.authors ILIKE CONCAT('%', :q, '%') OR
+                b.isbn ILIKE CONCAT('%', :q, '%')) AND
             (:category IS NULL OR :category = '' OR b.category = :category)
             ORDER BY b.title ASC
             """)
@@ -40,9 +40,9 @@ public interface BookRepository extends JpaRepository<BookEntity, UUID> {
             SELECT b FROM BookEntity b WHERE
             (:activeOnly = false OR b.active = true) AND
             (:q IS NULL OR :q = '' OR
-                LOWER(b.title) LIKE LOWER(CONCAT('%', :q, '%')) OR
-                LOWER(b.authors) LIKE LOWER(CONCAT('%', :q, '%')) OR
-                LOWER(b.isbn) LIKE LOWER(CONCAT('%', :q, '%'))) AND
+                b.title ILIKE CONCAT('%', :q, '%') OR
+                b.authors ILIKE CONCAT('%', :q, '%') OR
+                b.isbn ILIKE CONCAT('%', :q, '%')) AND
             (:category IS NULL OR :category = '' OR b.category = :category)
             ORDER BY b.title ASC
             """)
@@ -53,10 +53,11 @@ public interface BookRepository extends JpaRepository<BookEntity, UUID> {
 
     @Query("""
             SELECT b FROM BookEntity b WHERE
-            LOWER(b.title) LIKE LOWER(CONCAT('%', :q, '%')) OR
-            LOWER(b.authors) LIKE LOWER(CONCAT('%', :q, '%')) OR
-            LOWER(b.isbn) LIKE LOWER(CONCAT('%', :q, '%'))
+            b.title ILIKE CONCAT('%', :q, '%') OR
+            b.authors ILIKE CONCAT('%', :q, '%') OR
+            b.isbn ILIKE CONCAT('%', :q, '%')
             ORDER BY b.title ASC
             """)
     List<BookEntity> searchGlobal(@Param("q") String q, Pageable pageable);
 }
+

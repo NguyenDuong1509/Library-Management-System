@@ -127,7 +127,6 @@ export function BookDetailPage() {
     <>
       <PageHeader
         title={book.title}
-        description={`${book.authors} · ${book.category}`}
         action={
           <Link to="/thu-thu/sach" className="text-sm text-primary hover:underline">
             ← Danh mục
